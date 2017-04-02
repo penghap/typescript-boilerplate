@@ -1,9 +1,7 @@
-export function foo() {
-    return "foo!";
-}
+const express = require('express');
 
-export async function fooAsync() {
-    return "foo!?";
-}
+import { join } from 'path';
 
-console.log(`running ${__filename}`);
+export const http_apps = [
+    express.static(join(__dirname, '..', 'public')),
+];

@@ -25,6 +25,14 @@ Variants have their own branches:
 
 TODO: Electron
 
+#### Run at heroku
+
+When following the [Getting Started on Heroku with Node.js](https://devcenter.heroku.com/articles/getting-started-with-nodejs#prepare-the-app)
+guide,
+clone this repo instead of `https://github.com/heroku/node-js-getting-started.git`. All other steps stay the same.
+
+Just remember to `npm run build` and commit `lib` before pushing new version to heroku.
+
 #### Built-in npm scripts
 
 ###### Build & Run
