@@ -57,12 +57,27 @@
     "webpack-visualizer-plugin": "^0.1.10"
   },
   "jest": {
-    "transform": { ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js" },
-    "roots": [ "lib-ts", "lib" ],
-    "testMatch": [
-        "/**/__test__/*.(ts|js|tsx|jsx)", "\\.(spec|test)\\.(ts|js|tsx|jsx)$"
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "roots": [
+      "lib-ts",
+      "lib"
     ],
-    "moduleFileExtensions": [ "ts", "tsx", "js" ],
-    "coverageReporters": ["json", "lcov", "text", "html"]
+    "testMatch": [
+      "/**/__test__/*.(ts|js|tsx|jsx)",
+      "\\.(spec|test)\\.(ts|js|tsx|jsx)$"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "html"
+    ]
   }
 }
