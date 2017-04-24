@@ -11,7 +11,16 @@ module.exports = {
   module: {
     loaders: [
       // load ts/tsx with ts-loader
-      { test: /\.tsx?$/, loader: "ts-loader" }
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader",
+        options: {
+          configFileName: "tsconfig.webpack.json",
+          // FIXME: needed for HMR but conflicts with `rootDir` in tsconfig.json
+          transpileOnly: true,
+          isolatedModules: true
+        }
+      }
     ]
   },
   plugins: [new Visualizer()],
