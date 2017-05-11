@@ -12,7 +12,7 @@
     "test:coverage": "npm run build && jest --coverage",
     "test:watch": "   npm run build && jest --watch",
     "tslint": "tslint -c tslint.json ts-lib/**/*.ts",
-    "dev-server": "  webpack-dev-server --config webpack/dev.js",
+    "dev-server": "  webpack-dev-server --config webpack/dev.js  --hot",
     "webpack": "     webpack  --watch   --config webpack/dev.js",
     "webpack:prod": "webpack            --config webpack/prod.js"
   },
@@ -37,7 +37,7 @@
   },
   "homepage": "https://github.com/jokester/typescript-boilerplate#readme",
   "dependencies": {
-    "preact": "^7.2.0",
+    "preact": "^8.1.0",
     "tslib": "^1.6.0"
   },
   "devDependencies": {

@@ -5,6 +5,6 @@ import * as preact from 'preact';
  */
 export class Greeting extends preact.Component<{ val: number }, {}> {
     render() {
-        return <p>hey with number={this.props.val}</p>;
+        return <p>Greeting! with number = {this.props.val}</p>;
     }
 }
