@@ -9,16 +9,16 @@ type HMRModule = typeof module & {
             callback: (updatedDependencies: any[]) => void): void
         accept(moduleName: string, callback: () => void): void
     }
-}
+};
 
-import * as m from './m';
+import * as m from "./m";
 import { Greeting } from './greeting';
 
 if ($$webpack_dev && (module as HMRModule).hot) {
     // dev w/ HMR: hot-reload './m', './greeting' and re-render
 
     console.info("configuring webpack HMR");
-    console.info('m=', m);
+    console.info("m=", m);
     (module as HMRModule).hot.accept(["./m", "./greeting"], function () {
         console.log("accept handler get called", [].slice.call(arguments));
         console.info("m=", m);
