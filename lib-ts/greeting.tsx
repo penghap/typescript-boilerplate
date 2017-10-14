@@ -1,4 +1,4 @@
-import * as preact from 'preact';
+import * as preact from "preact";
 
 /**
  * This module will be hot-reloaded and rendered upon modification
