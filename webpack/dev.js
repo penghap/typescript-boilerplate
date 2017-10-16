@@ -8,6 +8,11 @@ const webpack = require("webpack");
 module.exports = webpackMerge([
   require("./common"),
   {
+    output: {
+      path: path.join(__dirname, "..", "dev"),
+      filename: "[name].js",
+      sourceMapFilename: "[name].map"
+    },
     devServer: {
       contentBase: path.join(__dirname, "..", "dev"),
       compress: true,
