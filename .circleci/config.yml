@@ -8,20 +8,20 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
 
       - run:
           name: Install deps
           command: yarn install --ignore-engines
 
       - save_cache:
-          key: dependency-cache-{{ checksum "yarn.lock" }}
+          key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
           paths:
-            - ~/.yarn-cache
+            - ~/.cache/yarn
 
       - run:
           name: Build (tsc)
-          command: npm run webpack
+          command: npm run build
 
       - run:
           name: Build (webpack dev)
@@ -40,8 +40,12 @@ jobs:
           command: npm run test
 
       - run:
-          name: Test Coverage
+          name: Measure Test Coverage
           command: npm run test:coverage
+
+      - run:
+          name: Upload Coverage
+          command: npm run test:codecov-upload
 
       - store_artifacts:
           path: coverage

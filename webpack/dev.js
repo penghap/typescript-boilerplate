@@ -8,19 +8,6 @@ const webpack = require("webpack");
 module.exports = webpackMerge([
   require("./common"),
   {
-    entry: {
-      "browser-entrypoint": path.join(
-        __dirname,
-        "..",
-        "lib-ts",
-        "browser-entrypoint.tsx"
-      )
-    },
-    output: {
-      path: path.join(__dirname, "..", "dev"),
-      filename: "[name].js",
-      sourceMapFilename: "[name].map"
-    },
     devServer: {
       contentBase: path.join(__dirname, "..", "dev"),
       compress: true,

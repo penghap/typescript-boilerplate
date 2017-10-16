@@ -10,6 +10,7 @@
     "build:watch": "rm -rf lib/* && tsc --watch",
     "test": "         npm run build && jest --forceExit",
     "test:coverage": "npm run build && jest --forceExit --coverage",
+    "test:codecov-upload": "codecov -f coverage/*.json",
     "test:watch": "   npm run build && jest --forceExit --watch",
     "tslint": "    tslint -c tslint.json       'lib-ts/**/*.ts?(x)'",
     "tslint:fix": "tslint -c tslint.json --fix 'lib-ts/**/*.ts?(x)'",
@@ -39,6 +40,7 @@
   },
   "homepage": "https://github.com/jokester/typescript-boilerplate#readme",
   "dependencies": {
+    "corejs": "^1.0.0",
     "tslib": "^1.7.1"
   },
   "devDependencies": {
@@ -48,9 +50,10 @@
     "@types/node": "^8.0.27",
     "babel-minify-webpack-plugin": "0.2.0",
     "chai": "^4.1.2",
+    "codecov": "^2.3.1",
     "jest": "^21.0.1",
     "ts-jest": "^21.0.0",
-    "ts-loader": "^2.3.6",
+    "ts-loader": "^3.0.3",
     "ts-node": "^3.3.0",
     "tslint": "^5.7.0",
     "typescript": "^2.5.2",
@@ -69,7 +72,13 @@
     ],
     "testMatch": [
       "/**/__test__/*.(ts|js|tsx|jsx)",
-      "**/*\\.(spec|test)\\.(ts|js|tsx|jsx)"
+      "/**/*\\.(spec|test)\\.(ts|js|tsx|jsx)"
+    ],
+    "collectCoverageFrom": [
+      "lib-ts/**/*.(ts|tsx)",
+      "!lib/",
+      "!**/node_modules",
+      "!/coverage"
     ],
     "moduleFileExtensions": [
       "ts",
