@@ -12,9 +12,9 @@ type HMRModule = typeof module & {
 };
 
 import * as m from "./m";
-import { Greeting } from "./greeting";
+import { Greeting, WithTimer1, TimerText } from "./greeting";
 
-if ($$webpack_dev && (module as HMRModule).hot) {
+if (0 && $$webpack_dev && (module as HMRModule).hot) {
     // dev w/ HMR: hot-reload './m', './greeting' and re-render
 
     console.info("configuring webpack HMR");
@@ -29,4 +29,6 @@ if ($$webpack_dev && (module as HMRModule).hot) {
     console.info("webpack HMR not available");
 }
 
-preact.render(<Greeting val={m.v} />, document.body, document.body.firstElementChild);
+preact.render(
+    <WithTimer1 child={<TimerText timerText="placeholder" />} />,
+    document.body, document.body.firstElementChild);
