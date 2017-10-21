@@ -8,6 +8,7 @@
 # built
 /dev
 /prod
+/dist
 
 # misc
 /tmp

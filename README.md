@@ -94,6 +94,9 @@ $ npm run electron
 
 # run prod bundle
 $ npm run electron:prod
+
+# build prod bundle and for all platforms (with electron-packager)
+$ npm run package-electron:all
 ```
 
 <!-- TODO: can electron work with webpack HMR? -->
