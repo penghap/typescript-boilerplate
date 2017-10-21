@@ -18,18 +18,13 @@ jobs:
           command: yarn install --ignore-engines
 
       - run:
-          name: Install deps
+          name: Install deps (for electron packager)
           command: sudo sh -c "dpkg --add-architecture i386 && apt-get update && apt-get install wine32"
 
       - save_cache:
           key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-
-      - save_cache:
-          key: dependency-cache-electron-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/electron
 
       - run:
           name: Build (tsc)
@@ -44,8 +39,13 @@ jobs:
           command: npm run webpack:prod
 
       - run:
-          name: Build (electron packager)
-          command: npm run package-electron
+          name: Build (electron bundle, all platforms)
+          command: npm run package-electron:all
+
+      - save_cache:
+          key: dependency-cache-electron-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/electron
 
       - run:
           name: Measure electron bundle size
