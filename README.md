@@ -22,10 +22,10 @@ Variants have their own branches:
 - [webpack-react](https://github.com/jokester/typescript-boilerplate/tree/webpack-react) branch
 - [webpack-preact](https://github.com/jokester/typescript-boilerplate/tree/webpack-preact) branch
     - [Preact](https://preactjs.com/): Fast 3kB alternative to React with the same ES6 API.
+- [electron-react](https://github.com/jokester/typescript-boilerplate/tree/electron-react) branch
+    - electron + react
 - [heroku](https://github.com/jokester/typescript-boilerplate/tree/heroku) branch
     - a simplest (server-only) express.js app with heroku support
-
-<!-- TODO: Electron -->
 
 #### Built-in npm scripts
 
@@ -86,7 +86,17 @@ $ npm run dev-server
 $ npm run webpack:prod
 ```
 
-(Variants may have more npm scripts, please refer to their `README.md` as well.)
+###### Electron
+
+```bash
+# run dev bundle
+$ npm run electron
+
+# run prod bundle
+$ npm run electron:prod
+```
+
+<!-- TODO: can electron work with webpack HMR? -->
 
 #### License
 

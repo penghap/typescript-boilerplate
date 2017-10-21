@@ -6,17 +6,21 @@ import { Greeting } from "./greeting";
 import { webpack_dev, haveHMR, } from "./webpack-hmr";
 
 if (webpack_dev && haveHMR(module)) {
-    // dev w/ HMR: hot-reload './m' and create <li> from it
+    // dev w/ HMR: hot-reload './m', './greeting' and re-render
     console.info("configuring webpack HMR");
     console.info("m=", m);
-    module.hot.accept("./m", function () {
+    module.hot.accept(["./m", "./greeting"], function () {
         console.log("accept handler get called", [].slice.call(arguments));
         console.info("m=", m);
-        ReactDOM.render(<Greeting val={m.v} />, document.body.firstElementChild);
+        renderRoot();
     });
 } else if (webpack_dev) {
     // dev w/o HMR
     console.info("webpack HMR not available");
-}
+} // else: do nothing
 
-ReactDOM.render(<Greeting val={m.v} />, document.body.firstElementChild);
+renderRoot();
+
+function renderRoot() {
+    ReactDOM.render(<Greeting val={m.v} />, document.body.firstElementChild);
+}
