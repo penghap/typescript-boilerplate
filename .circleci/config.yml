@@ -10,14 +10,26 @@ jobs:
       - restore_cache:
           key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
 
+      - restore_cache:
+          key: dependency-cache-electron-{{ checksum "yarn.lock" }}
+
       - run:
           name: Install deps
           command: yarn install --ignore-engines
+
+      - run:
+          name: Install deps
+          command: sudo sh -c "dpkg --add-architecture i386 && apt-get update && apt-get install wine32"
 
       - save_cache:
           key: dependency-cache-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+
+      - save_cache:
+          key: dependency-cache-electron-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/electron
 
       - run:
           name: Build (tsc)
@@ -30,6 +42,14 @@ jobs:
       - run:
           name: Build (webpack prod)
           command: npm run webpack:prod
+
+      - run:
+          name: Build (electron packager)
+          command: npm run package-electron
+
+      - run:
+          name: Measure electron bundle size
+          command: du -sh dist/*
 
       - run:
           name: Run tslint
