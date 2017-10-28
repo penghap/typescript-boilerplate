@@ -7,13 +7,23 @@ const Visualizer = require("webpack-visualizer-plugin");
 
 module.exports = {
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+    alias: {
+      'react': 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
   },
   entry: {
     "browser-entrypoint": [
       "core-js/client/shim",
       path.join(__dirname, "..", "lib-ts", "browser-entrypoint.tsx"),
     ],
+  },
+  output: {
+    path: path.join(__dirname, "..", "public"),
+    filename: "static/[name].js",
+    // prefix "sourcemap" can be used to distinguish and reject public access
+    sourceMapFilename: "static/sourcemap/[name].map"
   },
   module: {
     loaders: [
@@ -33,6 +43,9 @@ module.exports = {
       }
     ]
   },
-  plugins: [new Visualizer()],
+  plugins: [
+    new Visualizer(),
+    new webpack.NoEmitOnErrorsPlugin()
+  ],
   devtool: "source-map"
 };
