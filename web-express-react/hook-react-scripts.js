@@ -12,7 +12,7 @@ const decorators = [
     name: "./paths",
     decorator: (orig) => ({
       ... orig,
-      appIndexJs: path.join(__dirname, "src/h2.tsx"),
+      appIndexJs: path.join(__dirname, "src/browser.tsx"),
     }),
   },
 ];

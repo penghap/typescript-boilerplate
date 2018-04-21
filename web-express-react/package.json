@@ -9,7 +9,8 @@
   },
   "scripts": {
     "start": "node hook-react-scripts start",
-    "build": "node hook-react-scripts build",
+    "build-browser": "node hook-react-scripts build",
+    "build-server": "tsc ",
     "test": "node hook-react-scripts test --env=jsdom"
   },
   "devDependencies": {
