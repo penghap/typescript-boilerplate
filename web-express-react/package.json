@@ -8,16 +8,16 @@
     "react-scripts-ts": "2.15.1"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
-    "build": "react-scripts-ts build",
-    "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "start": "node hook-react-scripts start",
+    "build": "node hook-react-scripts build",
+    "test": "node hook-react-scripts test --env=jsdom"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
+    "require-in-the-middle": "^2.2.1",
     "typescript": "^2.8.3"
   }
 }
