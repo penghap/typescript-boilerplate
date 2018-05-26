@@ -8,12 +8,12 @@ const Module = require("module");
 const decorators = [
   {
     comment: "override webpack paths",
+    decorator: (orig) => ({
+      appIndexJs: path.join(__dirname, "src/index.tsx"),
+      ... orig,
+    }),
     id: "",
     name: "./paths",
-    decorator: (orig) => ({
-      ... orig,
-      appIndexJs: path.join(__dirname, "src/browser.tsx"),
-    }),
   },
 ];
 
