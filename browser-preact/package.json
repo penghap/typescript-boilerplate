@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "preact": "^8.4.2",
-    "preact-compat": "^3.18.4",
+    "preact-compat": "https://github.com/jokester/preact-compat#98cb39",
     "tslib": "^1.9.3"
   },
   "devDependencies": {

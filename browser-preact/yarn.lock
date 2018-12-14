@@ -7817,10 +7817,9 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.2, postcss@^7.0.5, postcss@^7.0.6:
     source-map "^0.6.1"
     supports-color "^5.5.0"
 
-preact-compat@^3.18.4:
+"preact-compat@https://github.com/jokester/preact-compat#98cb39":
   version "3.18.4"
-  resolved "https://registry.yarnpkg.com/preact-compat/-/preact-compat-3.18.4.tgz#fbe76ddd30356c68e3ccde608107104946f2cf8d"
-  integrity sha512-aR5CvCIDerE2Y201ERVkWQdTAQKhKGNYujEk4tbyfQDInFTrnCCa3KCeGtULZrwy0PNRBjdQa2/Za7qv7ALNFg==
+  resolved "https://github.com/jokester/preact-compat#98cb399b4afead889d2447d116a3577934308538"
   dependencies:
     immutability-helper "^2.7.1"
     preact-render-to-string "^3.8.2"
